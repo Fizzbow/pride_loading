@@ -1,5 +1,5 @@
 .row_item {
-  /* animation: loading 1s infinite alternate; */
+  animation: loading 1s ease-in;
 }
 
 @keyframes loading {

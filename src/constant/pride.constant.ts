@@ -16,10 +16,3 @@ export const pride_color = [
 ];
 
 export type PrideColorType = (typeof pride_color)[number];
-
-const colorArr = [
-  {
-    color: "#151F27",
-    num: 0,
-  },
-];

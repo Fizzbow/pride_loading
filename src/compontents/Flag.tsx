@@ -3,8 +3,15 @@ import { Row } from "../constant/pride.constant";
 import "./Flag.css";
 
 const Flag = <T,>({ colors, num }: Row<T>) => {
-  const transMatrices = (rows: Row<T>["colors"]): string[][] => {
-    return rows.map((color) => new Array(num).fill(color));
+  const transMatrices = (
+    rows: Row<T>["colors"]
+  ): { color: string; id: number }[][] => {
+    let currId = 1;
+    return rows.map((color) =>
+      new Array(num).fill(null).map(() => {
+        return { color, id: currId++ };
+      })
+    );
   };
   return (
     <div
@@ -20,25 +27,17 @@ const Flag = <T,>({ colors, num }: Row<T>) => {
           key={idx}
           style={{ display: "flex", flexDirection: "row" }}
         >
-          {row.map((color, colorIdx) => (
+          {row.map((color) => (
             <div
               className="row_item"
-              key={`${idx}_${colorIdx}`}
+              key={`${color.id}`}
               style={{
                 width: "80px",
                 height: "20px",
-                // animationDelay: `${(colorIdx + 2) * 5}s`,
-                backgroundColor: `${color}`,
+                animationDelay: `${color.id + 1}s`,
+                backgroundColor: `${color.color}`,
               }}
-            >
-              <span
-                style={{
-                  border: "solid 1px black",
-                }}
-              >
-                x: {colorIdx}|y:{idx}
-              </span>
-            </div>
+            ></div>
           ))}
         </div>
       ))}
