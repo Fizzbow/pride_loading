@@ -3,6 +3,7 @@
   margin: 0 auto;
   height: 100vh;
   text-align: center;
+  background-color: hsl(210deg, 30%, 12%);
   > main {
     padding: 20px;
   }
