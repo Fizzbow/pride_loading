@@ -1,20 +1,18 @@
+.base_transition {
+  transition: all 1s cubic-bezier(0.5, -1, 0.5, 2);
+}
 .row_item {
   animation: loading 1s infinite alternate;
-  border-radius: 3px;
+  border-radius: 2px;
 }
-
 @keyframes loading {
   0% {
     opacity: 0;
-    /* width: 18px;
-    height: 18px; */
   }
-  50% {
-    opacity: 0.6;
-  }
+
   100% {
     opacity: 1;
-    /* width: 20px;
-    height: 20px; */
+    width: calc(var(--size) * 1.1rem);
+    height: calc(var(--size) * 1.1rem);
   }
 }

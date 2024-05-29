@@ -4,19 +4,10 @@ import "./Flag.css";
 interface FlagProps {
   gap: number;
   size: number;
+  // type: "wave" | "fade";
 }
 
 const Flag = <T,>({ colors, num, size = 4, gap = 2 }: FlagProps & Row<T>) => {
-  //   const transMatrices = (
-  //     rows: Row<T>["colors"]
-  //   ): { color: string; id: number }[][] => {
-  //     let currId = 1;
-  //     return rows.map((color) =>
-  //       new Array(num).fill(null).map(() => {
-  //         return { color, id: currId++ };
-  //       })
-  //     );
-  //   };
   const transMatrices = (rows: Row<T>["colors"]) => {
     let currId = 1;
     return [1, 2].map(() =>
@@ -36,14 +27,12 @@ const Flag = <T,>({ colors, num, size = 4, gap = 2 }: FlagProps & Row<T>) => {
     >
       {transMatrices(colors).map((row, idx) => (
         <div
-          className="row"
+          className="row base_transition"
           key={idx}
           style={{
             display: "flex",
             gap: `${gap * 0.25}rem`,
             flexDirection: "row",
-
-            transition: "all 1s  cubic-bezier(.5, -1, .5, 2)",
           }}
         >
           {row.map((color, colorIdx) => (
@@ -56,7 +45,6 @@ const Flag = <T,>({ colors, num, size = 4, gap = 2 }: FlagProps & Row<T>) => {
                   height: "calc(var(--size) * 1rem)",
                   marginBottom: `${gap * 0.25}rem`,
                   animationDelay: `${(colorIdx + 1) * 0.2}s`,
-                  transition: "all 1s  cubic-bezier(.5, -1, .5, 2)",
                   backgroundColor: `${color.color}`,
                   "--size": size * 0.25,
                 } as React.CSSProperties

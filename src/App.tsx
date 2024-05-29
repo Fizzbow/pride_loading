@@ -2,19 +2,33 @@ import { useState } from "react";
 
 import "./App.css";
 import Flag from "./compontents/Flag";
-import { PrideColorType, Row, pride_color } from "./constant/pride.constant";
+import {
+  PrideColorType,
+  Row,
+  PRIDE_COLOR,
+  // TRANS_COLOR,
+} from "./constant/pride.constant";
 
 function App() {
+  return (
+    <main>
+      <header>Pride</header>
+      <RowsLoadingGroup colors={PRIDE_COLOR} />
+      {/* <RowsLoadingGroup colors={TRANS_COLOR} /> */}
+    </main>
+  );
+}
+
+const RowsLoadingGroup = ({ colors }: { colors: PrideColorType[] }) => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [pride, _] = useState<Row<PrideColorType>>({
-    colors: pride_color,
+    colors,
     num: 10,
   });
   const [gap, setGap] = useState<number>(2);
   const [size, setSize] = useState<number>(4);
   return (
-    <main>
-      <header>Pride</header>
+    <section>
       <label htmlFor="gap" style={{ display: "flex", flexDirection: "row" }}>
         <strong>GAP:</strong>
         <input
@@ -49,8 +63,8 @@ function App() {
         {size}
       </label>
       <Flag size={size} gap={gap} colors={pride.colors} num={pride.num} />
-    </main>
+    </section>
   );
-}
+};
 
 export default App;
