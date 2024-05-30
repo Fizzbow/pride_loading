@@ -1,13 +1,14 @@
 import { useState } from "react";
 
 import "./App.css";
-import Wave from "./compontents/Wave";
+
 import {
   PrideColorType,
   Row,
   PRIDE_COLOR,
   // TRANS_COLOR,
 } from "./constant/pride.constant";
+import Wave from "./components/Wave";
 
 function App() {
   return (
