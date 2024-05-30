@@ -1,6 +1,4 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
   height: 100vh;
   text-align: center;
   background-color: hsl(210deg, 30%, 12%);
