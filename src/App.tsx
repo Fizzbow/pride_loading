@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 import "./App.css";
-import Flag from "./compontents/Flag";
+import Wave from "./compontents/Wave";
 import {
   PrideColorType,
   Row,
@@ -62,7 +62,7 @@ const RowsLoadingGroup = ({ colors }: { colors: PrideColorType[] }) => {
         />
         {size}
       </label>
-      <Flag size={size} gap={gap} colors={pride.colors} num={pride.num} />
+      <Wave size={size} gap={gap} colors={pride.colors} num={pride.num} />
     </section>
   );
 };

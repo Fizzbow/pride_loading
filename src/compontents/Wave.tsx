@@ -1,13 +1,13 @@
 import { Row } from "../constant/pride.constant";
 
-import "./Flag.css";
-interface FlagProps {
+import "./Wave.css";
+interface WaveProps {
   gap: number;
   size: number;
   // type: "wave" | "fade";
 }
 
-const Flag = <T,>({ colors, num, size = 4, gap = 2 }: FlagProps & Row<T>) => {
+const Wave = <T,>({ colors, num, size = 4, gap = 2 }: WaveProps & Row<T>) => {
   const transMatrices = (rows: Row<T>["colors"]) => {
     let currId = 1;
     return [1, 2].map(() =>
@@ -57,4 +57,4 @@ const Flag = <T,>({ colors, num, size = 4, gap = 2 }: FlagProps & Row<T>) => {
   );
 };
 
-export default Flag;
+export default Wave;
