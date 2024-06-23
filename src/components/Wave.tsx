@@ -4,10 +4,9 @@ import "./Wave.css";
 interface WaveProps {
   gap: number;
   size: number;
-  // type: "wave" | "fade";
 }
 
-const Wave = <T,>({ colors, num, size = 4, gap = 2 }: WaveProps & Row<T>) => {
+const Wave = <T,>({ colors, size = 4, gap = 2 }: WaveProps & Row<T>) => {
   const transMatrices = (rows: Row<T>["colors"]) => {
     let currId = 1;
     return [1, 2].map(() =>
@@ -16,6 +15,7 @@ const Wave = <T,>({ colors, num, size = 4, gap = 2 }: WaveProps & Row<T>) => {
       })
     );
   };
+  console.log("transMatrices", transMatrices(colors));
   return (
     <div
       style={{

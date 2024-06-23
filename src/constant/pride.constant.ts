@@ -22,4 +22,21 @@ export const TRANS_COLOR = [
   "#71C8F3",
 ];
 
-export type PrideColorType = (typeof PRIDE_COLOR | typeof TRANS_COLOR)[number];
+export const LGBT_COLOR = [
+  "91,206,250",
+  "245,169,184",
+  "255,255,255",
+  "96,57,23",
+  "0,0,0",
+  "238,49,36",
+  "245,126,41",
+  "255,238,0",
+  "88,185,71",
+  "0,83,166",
+  "159,36,143",
+];
+export type PrideColorType = (
+  | typeof PRIDE_COLOR
+  | typeof TRANS_COLOR
+  | typeof LGBT_COLOR
+)[number];

@@ -6,15 +6,18 @@ import {
   PrideColorType,
   Row,
   PRIDE_COLOR,
+  LGBT_COLOR,
   // TRANS_COLOR,
 } from "./constant/pride.constant";
 import Wave from "./components/Wave";
+import Bar from "./components/Bar";
 
 function App() {
   return (
     <main>
       <header>Pride</header>
       <RowsLoadingGroup colors={PRIDE_COLOR} />
+      <FlagControlGroup colors={PRIDE_COLOR} />
       {/* <RowsLoadingGroup colors={TRANS_COLOR} /> */}
     </main>
   );
@@ -66,6 +69,10 @@ const RowsLoadingGroup = ({ colors }: { colors: PrideColorType[] }) => {
       <Wave size={size} gap={gap} colors={pride.colors} num={pride.num} />
     </section>
   );
+};
+
+const FlagControlGroup = ({ colors }: { colors: PrideColorType[] }) => {
+  return <Bar num={2} colors={LGBT_COLOR} />;
 };
 
 export default App;
