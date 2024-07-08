@@ -11,14 +11,22 @@ import {
 } from "./constant/pride.constant";
 import Wave from "./components/Wave";
 import Bar from "./components/Bar";
+import { MagicRainbowButton } from "./components/RainbowBtn";
 
 function App() {
   return (
-    <main>
+    <main
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        gap: "20px",
+      }}
+    >
       <header>Pride</header>
       <RowsLoadingGroup colors={PRIDE_COLOR} />
       <FlagControlGroup colors={PRIDE_COLOR} />
       {/* <RowsLoadingGroup colors={TRANS_COLOR} /> */}
+      <MagicRainbowButton />
     </main>
   );
 }
