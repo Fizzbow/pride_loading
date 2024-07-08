@@ -19,7 +19,7 @@ const Bar = <T,>({ colors }: Row<T>) => {
         height: "12px",
         background: toLinear(colors),
       }}
-    ></div>
+    />
   );
 };
 

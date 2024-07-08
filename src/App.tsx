@@ -23,8 +23,8 @@ function App() {
       }}
     >
       <header>Pride</header>
-      <RowsLoadingGroup colors={PRIDE_COLOR} />
-      <FlagControlGroup colors={PRIDE_COLOR} />
+      {/* <RowsLoadingGroup colors={PRIDE_COLOR} />
+      <FlagControlGroup colors={PRIDE_COLOR} /> */}
       {/* <RowsLoadingGroup colors={TRANS_COLOR} /> */}
       <MagicRainbowButton />
     </main>

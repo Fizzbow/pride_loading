@@ -1,43 +1,27 @@
 import useRainbow from "./useRainbow";
-export const MagicRainbowButton = ({ children, intervalDelay = 1000 }) => {
-  // The hook should take 1 argument, `intervalDelay`.
-  // it should return an object in this shape:
-  /*
-    {
-      '--magic-rainbow-color-0': hsl(...),
-      '--magic-rainbow-color-1': hsl(...),
-      '--magic-rainbow-color-2': hsl(...),
-    }
-  */
+export const MagicRainbowButton = ({ intervalDelay = 1000 }) => {
   const colors = useRainbow({ intervalDelay });
   const colorKeys = Object.keys(colors);
+
+  const transition = colorKeys.map((l) => `${l} 900ms linear`).join(",");
+
+  const linearGradient = colorKeys
+    .map((_l, idx) => `var(${colorKeys[colorKeys.length - (idx + 1)]})`)
+    .join(" , ");
+
   return (
     <div
       style={{
         height: "20px",
-        // Spread the colors to define them as custom properties
-        // on this element
+        width: "100%",
         ...colors,
-        // Use the keys to set the same transition on all props.
-        transition: `
-          ${colorKeys[0]} 1000ms linear,
-          ${colorKeys[1]} 1000ms linear,
-          ${colorKeys[2]} 1000ms linear
-        `,
-        // Use those property values in our gradient.
-        // Values go from 2 to 0 so that colors radiate
-        // outwards from the top-left circle, not inwards.
+        transition,
         background: `
-          radial-gradient(
-            circle at top left,
-            var(${colorKeys[2]}),
-            var(${colorKeys[1]}),
-            var(${colorKeys[0]})
+          linear-gradient(
+            to right,${linearGradient}
           )
         `,
       }}
-    >
-      {children}
-    </div>
+    />
   );
 };
