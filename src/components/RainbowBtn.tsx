@@ -1,5 +1,5 @@
 import useRainbow from "./useRainbow";
-export const MagicRainbowButton = ({ intervalDelay = 1000 }) => {
+export const MagicRainbowButton = ({ intervalDelay = 700 }) => {
   const colors = useRainbow({ intervalDelay });
   const colorKeys = Object.keys(colors);
 

@@ -1,32 +1,17 @@
-import React from "react";
 import useIncrementingNumber from "./useIncrementingNumber";
 import { LGBT_COLOR } from "../constant/pride.constant";
+import { useEffect, useState } from "react";
 
 const paletteSize = LGBT_COLOR.length;
-const useRainbow = ({ intervalDelay = 100 }) => {
-  // Register all custom properties.
-  // This only ever needs to be done once, so there are no dependencies.
-  React.useEffect(() => {
-    for (let i = 0; i < LGBT_COLOR.length; i++) {
-      const propertyName = `--magic-rainbow-color-${i}`;
-
-      // if (CSS.supports(`(${propertyName}: initial)`)) return;
-      console.log({ propertyName });
-      try {
-        CSS.registerProperty({
-          name: `${propertyName}`,
-          initialValue: `rgb(${LGBT_COLOR[i]})`,
-          syntax: "<color>",
-          inherits: false,
-        });
-      } catch (err) {
-        console.log(err);
-      }
-    }
-  }, []);
+const useRainbow = ({ intervalDelay = 1000 }) => {
   // Get an ever-incrementing number from another custom hook*
   const intervalCount = useIncrementingNumber(intervalDelay);
-  // Using that interval count, derive each current color value
+
+  useEffect(() => {
+    const animationId = requestAnimationFrame(customVariant);
+
+    return () => cancelAnimationFrame(animationId);
+  }, [intervalCount]);
 
   const customVariant = () => {
     const colors: Record<string, string> = {};
@@ -36,6 +21,8 @@ const useRainbow = ({ intervalDelay = 100 }) => {
         LGBT_COLOR[(intervalCount + (idx + 1)) % paletteSize]
       })`;
     });
+
+    requestAnimationFrame(customVariant);
 
     return colors;
   };
