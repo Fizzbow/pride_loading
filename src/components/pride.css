@@ -1,0 +1,16 @@
+.prideProgress {
+  background-size: 500% auto;
+  background-position: 0 100%;
+  animation: gradient 20s infinite;
+  animation-fill-mode: forwards;
+  animation-timing-function: linear;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -500% 0;
+  }
+}
