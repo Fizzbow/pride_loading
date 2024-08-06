@@ -1,9 +1,8 @@
 import useRainbow from "./useRainbow";
+import "./rainbow.css";
 export const MagicRainbowButton = ({ intervalDelay = 700 }) => {
   const colors = useRainbow({ intervalDelay });
   const colorKeys = Object.keys(colors);
-
-  const transition = colorKeys.map((l) => `${l} 900ms linear`).join(",");
 
   const linearGradient = colorKeys
     .map((_l, idx) => `var(${colorKeys[colorKeys.length - (idx + 1)]})`)
@@ -11,13 +10,12 @@ export const MagicRainbowButton = ({ intervalDelay = 700 }) => {
 
   return (
     <div
+      className="animated-gradient"
       style={{
         height: "20px",
-        width: "100%",
         ...colors,
-        transition,
         background: `
-          linear-gradient(
+          repeating-linear-gradient(
             to right,${linearGradient}
           )
         `,

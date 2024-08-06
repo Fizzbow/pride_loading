@@ -12,6 +12,7 @@ import {
 import Wave from "./components/Wave";
 import Bar from "./components/Bar";
 import { MagicRainbowButton } from "./components/RainbowBtn";
+import { PrideProgress } from "./components/PrideProgress";
 
 function App() {
   return (
@@ -26,7 +27,8 @@ function App() {
       {/* <RowsLoadingGroup colors={PRIDE_COLOR} />
       <FlagControlGroup colors={PRIDE_COLOR} /> */}
       {/* <RowsLoadingGroup colors={TRANS_COLOR} /> */}
-      <MagicRainbowButton />
+      {/* <MagicRainbowButton /> */}
+      <PrideProgress />
     </main>
   );
 }
